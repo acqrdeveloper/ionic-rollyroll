@@ -1,0 +1,29 @@
+page-detail {
+
+  h2 {
+    color: #222;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 0;
+  }
+  h5 {
+    color: #222;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  small {
+    color: #777;
+    text-transform: capitalize;
+  }
+  p {
+    color: #777;
+  }
+  //ion-col {
+  //  padding: 1em;
+  //}
+  .button-inner {
+    justify-content: center;
+    -webkit-justify-content: center;
+  }
+
+}

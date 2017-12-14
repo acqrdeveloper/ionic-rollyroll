@@ -1,0 +1,29 @@
+page-cart {
+
+  .item{
+    padding-left: 10px;
+  }
+  .h6 {
+    font-size:1rem;
+    color: #777;
+    text-transform: capitalize;
+  }
+  .h4{
+    font-size: 1.5rem;
+    color: #222;
+    font-weight: bold;
+    text-transform: capitalize;
+    white-space: pre-wrap;
+  }
+  .button-inner {
+    justify-content: center;
+    -webkit-justify-content: center;
+  }
+  .list .item-block .item-inner {
+    border-bottom-color: #731111;
+  }
+  .list ion-item-options {
+    border-bottom-color: #731111;
+  }
+
+}

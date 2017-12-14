@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar color="danger">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Categoria</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content class="card-background-page">
+
+    <ion-card *ngFor="let item of items">
+        <a ion-item (click)="fnOpenSublist(item)">
+            <img src="{{item.image}}" width="100%" height="100%"/>
+            <div class="card-title" text-center>{{item.title}}</div>
+            <div class="card-subtitle" text-center>{{item.category}}</div>
+        </a>
+    </ion-card>
+</ion-content>
+
+<!--<ion-content>-->
+    <!--<ion-grid no-padding>-->
+        <!--<div class="row-content" *ngFor="let item of items">-->
+            <!--&lt;!&ndash;<ion-row>&ndash;&gt;-->
+                <!--&lt;!&ndash;<ion-col col-12 no-padding>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a ion-item (click)="fnOpenSublist()">&ndash;&gt;-->
+                        <!--<img src="{{item.image}}" width="100%" height="100%"/>-->
+                        <!--<div class="card-title" text-center>{{item.title}}</div>-->
+                        <!--<div class="card-subtitle" text-center>{{item.category}}</div>-->
+                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;</ion-col>&ndash;&gt;-->
+            <!--&lt;!&ndash;</ion-row>&ndash;&gt;-->
+            <!--&lt;!&ndash;<ion-row>&ndash;&gt;-->
+                <!--&lt;!&ndash;<ion-col col-12>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<h3>title</h3>&ndash;&gt;-->
+                <!--&lt;!&ndash;</ion-col>&ndash;&gt;-->
+                <!--&lt;!&ndash;<ion-col col-12>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<h4>sub title</h4>&ndash;&gt;-->
+                <!--&lt;!&ndash;</ion-col>&ndash;&gt;-->
+            <!--&lt;!&ndash;</ion-row>&ndash;&gt;-->
+        <!--</div>-->
+    <!--</ion-grid>-->
+<!--</ion-content>-->

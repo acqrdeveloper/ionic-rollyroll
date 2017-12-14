@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar color="danger">
+        <ion-title>Producto</ion-title>
+        <ion-buttons right>
+            <button ion-button class="pr15 my-icon" (click)="openModalCart()">
+                <ion-icon name="cart">
+                    <ion-badge *ngIf="objCart.total_qty != 0">{{objCart.total_qty}}</ion-badge>
+                </ion-icon>
+            </button>
+            <button ion-button class="pr15 my-icon" (click)="openModalFilter()">
+                <ion-icon name="funnel"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div *ngIf="objProducts.length >= 1">
+        <ion-grid no-padding *ngFor="let p of objProducts;let i = index">
+            <ion-row *ngIf="i%2 === 0">
+                <ion-col class="col-content-left" col-6 *ngIf="i < objProducts.length" >
+                    <a ion-item detail-none (click)="openModalDetail(objProducts[i])">
+                        <ion-row>
+                            <img [src]="'assets/imgs/app/' + objProducts[i].image" width="100%" height="100%"/>
+                        </ion-row>
+                        <ion-row class="row-title">
+                            <ion-col col-12 class="col-title">
+                                <h2>{{objProducts[i].name}}</h2>
+                            </ion-col>
+                        </ion-row>
+                    </a>
+                </ion-col>
+                <ion-col class="col-content-right" col-6 *ngIf="i+1 < objProducts.length">
+                    <a ion-item detail-none (click)="openModalDetail(objProducts[i+1])">
+                        <ion-row>
+                            <img [src]="'assets/imgs/app/' + objProducts[i+1].image" width="100%" height="100%"/>
+                        </ion-row>
+                        <ion-row class="row-title">
+                            <ion-col col-12 class="col-title">
+                                <h2>{{objProducts[i+1].name}}</h2>
+                            </ion-col>
+                        </ion-row>
+                    </a>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <ion-list *ngIf="objProducts.length <= 0">
+        <div class="lista-vacia">
+            <i class="fa fa-codepen fa-3x danger-icon"></i>
+            <h5>La lista está vacía, agregue productos</h5>
+        </div>
+    </ion-list>
+</ion-content>

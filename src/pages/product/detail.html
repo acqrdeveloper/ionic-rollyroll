@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar color="danger">
+        <ion-title>Detalle Producto</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-row padding>
+        <ion-col col-12>
+            <h2>{{objProduct.name}}</h2>
+            <small>mariscos</small>
+        </ion-col>
+    </ion-row>
+    <ion-row no-padding style="max-height:35vh">
+        <img [src]="'assets/imgs/app/' + objProduct.image" width="100%" height="100%"/>
+    </ion-row>
+    <ion-row padding>
+        <ion-col col-12>
+            <h5>Descripción</h5>
+            <p>{{objProduct.description}}</p>
+        </ion-col>
+        <ion-col col-12>
+            <h5>Presentación</h5>
+            <p>{{objProduct.presentation}}</p>
+        </ion-col>
+    </ion-row>
+</ion-content>
+
+<ion-footer no-border>
+    <ion-grid no-padding>
+        <ion-row>
+            <ion-col>
+                <button ion-button full large color="dark" outline class="m0">
+                    <b>S/.{{objProduct.price}}</b>
+                </button>
+            </ion-col>
+            <ion-col>
+                <button ion-button full large color="danger" class="m0" (click)="addCart()">
+                    <ion-icon name="cart"></ion-icon>
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-footer>

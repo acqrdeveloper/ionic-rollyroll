@@ -1,3 +1,22 @@
 page-home {
+  .scroll-content {
+    overflow-x: inherit;
+    overflow-y: inherit;
+  }
+
+  .button {
+    margin: 0;
+    border-bottom: 1px solid #fff; //900
+  }
+
+  .item-md.item-block .item-inner {
+    border-bottom: none;
+  }
+  .button-large {
+    height: 4em;
+  }
+  .button-inner {
+    justify-content: inherit;
+  }
 
 }

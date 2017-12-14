@@ -1,0 +1,98 @@
+<!--
+  Generated template for the ShoppingCartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="danger">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Cesta de Compra</ion-title>
+        <ion-buttons right>
+            <button ion-button class="pr15 my-icon" (click)="help()">
+                <ion-icon name="help"></ion-icon>
+            </button>
+            <button ion-button class="pr15 my-icon" (click)="clean()">
+                <ion-icon name="refresh"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list *ngIf="objCart.cart.length <= 0">
+        <div class="cesta-vacia">
+            <i class="fa fa-cart-plus fa-3x danger-icon"></i>
+            <h5>La cesta está vacia, agregue items</h5>
+        </div>
+    </ion-list>
+    <ion-list class="mb0 pb0" *ngIf="objCart.cart.length >= 1">
+        <ion-item-sliding *ngFor="let cart of objCart.cart">
+            <ion-item style="border-bottom-color: #9b1010">
+                <ion-row>
+                    <ion-col col-6>
+                        <img src="{{cart.cart_item_image}}" width="100%" height="100%">
+                    </ion-col>
+                    <ion-col col-6>
+                        <ion-row>
+                            <ion-col col-9>
+                                <div text-left>
+                                    <div class="h4"><b>{{cart.cart_item_name}}</b></div>
+                                </div>
+                            </ion-col>
+                            <ion-col col-3>
+                                <div text-right>
+                                    <div class="h6"><b>S/.{{toDecimal(cart.cart_item_price)}}</b></div>
+                                </div>
+                            </ion-col>
+                            <ion-col col-12>
+                                <div text-left>
+                                    <button ion-button icon-only color="dark" (click)="increment(cart.cart_item_id)">
+                                        <ion-icon name="add"></ion-icon>
+                                    </button>
+                                    <button ion-button color="dark" clear small>{{cart.cart_item_qty}}</button>
+                                    <button ion-button icon-only color="dark" (click)="decrement(cart.cart_item_id)">
+                                        <ion-icon name="remove"></ion-icon>
+                                    </button>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+            <ion-item-options side="right">
+                <button ion-button color="danger" (click)="drop(cart.cart_item_id)">
+                    <ion-icon name="trash"></ion-icon>
+                    Eliminar
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+    <ion-grid padding *ngIf="objCart.cart.length >= 1">
+        <ion-row class="mb1 pt10 pb10 bg-grey-200">
+            <ion-col col-8><b>SUBTOTAL</b></ion-col>
+            <ion-col col-4><b>S/.&nbsp;{{toDecimal(objCart.subtotal)}}</b></ion-col>
+        </ion-row>
+        <ion-row class="mb1 pt10 pb10 bg-grey-200">
+            <ion-col col-8><b>I.G.V</b></ion-col>
+            <ion-col col-4><b>S/.&nbsp;{{toDecimal(objCart.igv)}}</b></ion-col>
+        </ion-row>
+        <ion-row class="mb1 pt10 pb10 bg-grey-200">
+            <ion-col col-8><b>TOTAL</b></ion-col>
+            <ion-col col-4><b>S/.&nbsp;{{toDecimal(objCart.total_amount)}}</b></ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<ion-footer no-border>
+    <ion-row no-padding>
+        <ion-col no-padding>
+            <button ion-button icon-only full large color="danger" class="mb0" (click)="alertFormasdePago()" [disabled]="objCart.cart.length >= 1 ? false : true" >
+                <ion-icon name="paper-plane"></ion-icon>
+                Crear Pedido
+            </button>
+        </ion-col>
+    </ion-row>
+</ion-footer>
